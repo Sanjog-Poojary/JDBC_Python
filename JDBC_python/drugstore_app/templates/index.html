@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Welcome to Drug Store App</h1>
+  <p>Counts:</p>
+  <ul>
+    <li>Medicines: {{ counts.medicines }}</li>
+    <li>Manufacturers: {{ counts.manufacturers }}</li>
+    <li>Patients: {{ counts.patients }}</li>
+  </ul>
+
+  <h3>Top medicines</h3>
+  <ul>
+  {% for m in medicines %}
+    <li>{{ m.trade_name }}</li>
+  {% endfor %}
+  </ul>
+
+{% endblock %}

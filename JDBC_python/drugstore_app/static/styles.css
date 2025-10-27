@@ -1,0 +1,29 @@
+/* Custom styles to improve the look and feel */
+body {
+  background: #f6f8fa;
+}
+.navbar-brand {
+  font-weight: 700;
+  color: #2c3e50 !important;
+}
+.container {
+  max-width: 1100px;
+}
+h1, h2, h3, h4 {
+  color: #2c3e50;
+}
+.table thead.table-dark th {
+  background: linear-gradient(90deg, #34495e, #2c3e50);
+  color: #fff;
+}
+.btn-primary {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
+.card {
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+.alert {
+  border-radius: 6px;
+}

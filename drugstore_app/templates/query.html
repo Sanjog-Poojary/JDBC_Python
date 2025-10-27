@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Run SQL Query (read-only)</h2>
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">SQL (SELECT only)</label>
+      <textarea name="sql" class="form-control" rows="6">{{ q }}</textarea>
+    </div>
+    <button class="btn btn-primary">Run</button>
+  </form>
+
+  {% if error %}
+    <div class="alert alert-danger mt-3">{{ error }}</div>
+  {% endif %}
+
+  {% if results is not none %}
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <h4>Results (showing up to 200 rows)</h4>
+      <form method="post" action="/query/download">
+        <input type="hidden" name="sql" value="{{ q|e }}">
+        <button class="btn btn-outline-success">Download CSV</button>
+      </form>
+    </div>
+    <div class="table-responsive mt-2">
+      <table class="table table-sm table-bordered table-striped">
+        <thead class="table-dark">
+          <tr>
+            {% for c in columns %}<th>{{ c }}</th>{% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in results %}
+            <tr>
+              {% for v in r %}
+                <td>{{ v }}</td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% endif %}
+
+{% endblock %}

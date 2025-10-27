@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="hero">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <h1 class="mb-1">Drug Store Dashboard</h1>
+        <p class="muted mb-0">Quick overview of medicines, manufacturers and patients</p>
+      </div>
+      <div>
+        <a class="btn btn-light" href="/query">Run SQL</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats mb-3 row">
+    <div class="col-md-4 mb-3">
+      <div class="card p-3 text-center">
+        <h5 class="mb-1">Medicines</h5>
+        <div class="h2">{{ counts.medicines }}</div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card p-3 text-center">
+        <h5 class="mb-1">Manufacturers</h5>
+        <div class="h2">{{ counts.manufacturers }}</div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card p-3 text-center">
+        <h5 class="mb-1">Patients</h5>
+        <div class="h2">{{ counts.patients }}</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="mb-2">Medicines</h3>
+  <div class="card p-3 mb-3">
+    <div class="list-grid">
+    {% for m in medicines %}
+      <div class="badge bg-light text-dark py-2 px-3">{{ m.trade_name }}</div>
+    {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

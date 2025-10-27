@@ -1,0 +1,5 @@
+Flask==2.3.3
+# Use a SQLAlchemy 2.1.x release which has compatibility fixes for Python 3.13
+SQLAlchemy==2.0.44
+Flask-SQLAlchemy==3.0.3
+python-dotenv==1.0.0

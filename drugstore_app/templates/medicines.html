@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">Medicines</h2>
+    <form class="search-box d-flex" method="get">
+      <input name="q" class="form-control me-2" placeholder="Search medicines..." value="{{ q or '' }}">
+      <button class="btn btn-primary">Search</button>
+    </form>
+  </div>
+
+  <div class="card p-3">
+    <div class="list-grid">
+      {% for m in medicines %}
+        <div class="card p-2 d-flex justify-content-between align-items-center">
+          <div>{{ m.trade_name }}</div>
+          <div>
+            <a class="btn btn-sm btn-outline-secondary me-1" href="/medicines/edit/{{ m.trade_name }}">Edit</a>
+            <form method="post" action="/medicines/delete/{{ m.trade_name }}" style="display:inline" onsubmit="return confirm('Delete medicine?');">
+              <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
